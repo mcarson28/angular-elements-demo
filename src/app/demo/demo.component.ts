@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { createInput } from '@angular/compiler/src/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent implements OnInit {
+  @Input('alertMessage') alertMessage = 'Message';
 
   constructor() { }
 
@@ -13,6 +15,6 @@ export class DemoComponent implements OnInit {
   }
 
   demoClick() {
-    alert('hello!')
+    alert(this.alertMessage)
   }
 }
