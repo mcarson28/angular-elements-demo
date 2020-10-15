@@ -1,20 +1,17 @@
-import { createInput } from '@angular/compiler/src/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss']
 })
-export class DemoComponent implements OnInit {
-  @Input('alertMessage') alertMessage = 'Message';
+export class DemoComponent {
+  @Input('titleMessage') titleMessage = 'Title';
+  @Output('customEvent') customEvent: EventEmitter<any> = new EventEmitter<any>()
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  demoClick() {
-    alert(this.alertMessage)
+  onButtonClicked() {
+    this.customEvent.emit('emitting string')
   }
 }

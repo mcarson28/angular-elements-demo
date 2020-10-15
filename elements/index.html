@@ -5,9 +5,16 @@
     <title>Angular Elements Demo</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="http://192.168.1.100:8080/elements/elements.js"></script>
+    <script src="http://192.168.68.1:8080/elements/elements.js"></script>
   </head>
   <body>
-    <custom-element alert-message="This is the Message"></custom-element>
+    <custom-element title-message="This is the title!"></custom-element>
+
+    <script>
+      const component = document.querySelector('custom-element');
+      component.addEventListener('customEvent', (event) => {
+        alert(event.detail)
+      })
+    </script>
   </body>
 </html>
